@@ -1,24 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import './index.css';
+import {Routes} from './Route/route';
+import './../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import './../node_modules/bootstrap/dist/js/bootstrap.min.js';
+import axios from 'axios';
+import {GlobalProvider,GlobalContext} from './Contenxt/GlobalContext';
+import React,{useContext} from 'react';
 
 function App() {
+
+  axios.default.withCredentials = true;
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <GlobalProvider >
+       <Routes />
+    </GlobalProvider>
   );
 }
 
