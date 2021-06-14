@@ -24,7 +24,7 @@ export const Login = () => {
         if(res.data.auth){
           localStorage.setItem('token',res.data.token);
           loginAction(res.data.token)(authDispatch);
-
+          
         }else{
            setLoginError(res.data.message);
         }
@@ -43,7 +43,7 @@ export const Login = () => {
         <label for="exampleInputPassword1" className="form-label">Password</label>
         <input type="password" onChange={e => setPassword(e.target.value)} value={password} className="form-control" id="exampleInputPassword1" />
       </div>
-      <button type="submit" className="btn btn-primary">Submit</button>
+      <button onClick={loginUser} type="submit" className="btn btn-primary">Submit</button>
     </form>
 </div>
     )
